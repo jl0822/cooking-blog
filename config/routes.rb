@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  get 'welcome/home'
+  get 'welcome/about'
+  get 'welcome/contact'
+  resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get "about", controller: "public", action: "about", as: :about
+  get "blog" => "public#blog", as: :blog
+  get "contact" => "public#contact", as: :contact
 
   root to: "public#homepage"
 end
